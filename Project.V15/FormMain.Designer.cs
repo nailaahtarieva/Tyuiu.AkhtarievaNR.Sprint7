@@ -30,9 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             buttonHelp_ANR = new Button();
             buttonInfo_ANR = new Button();
@@ -57,6 +57,9 @@
             panel3 = new Panel();
             groupBoxViewTable_ANR = new GroupBox();
             dataGridViewTable_ANR = new DataGridView();
+            toolTip = new ToolTip(components);
+            saveFileDialogTask = new SaveFileDialog();
+            openFileDialogTask = new OpenFileDialog();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -66,9 +69,6 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column9 = new DataGridViewTextBoxColumn();
-            toolTip = new ToolTip(components);
-            saveFileDialogTask = new SaveFileDialog();
-            openFileDialogTask = new OpenFileDialog();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -150,7 +150,7 @@
             buttonSearch_ANR.Name = "buttonSearch_ANR";
             buttonSearch_ANR.Size = new Size(56, 45);
             buttonSearch_ANR.TabIndex = 4;
-            toolTip.SetToolTip(buttonSearch_ANR, "Найти работника");
+            toolTip.SetToolTip(buttonSearch_ANR, "Поиск работника");
             buttonSearch_ANR.UseVisualStyleBackColor = true;
             buttonSearch_ANR.Click += buttonSearch_ANR_Click;
             // 
@@ -297,18 +297,18 @@
             // 
             // chartContract_ANR
             // 
-            chartArea2.Name = "ChartArea1";
-            chartContract_ANR.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            chartContract_ANR.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            chartContract_ANR.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            chartContract_ANR.Legends.Add(legend3);
             chartContract_ANR.Location = new Point(21, 26);
             chartContract_ANR.Name = "chartContract_ANR";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartContract_ANR.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartContract_ANR.Series.Add(series3);
             chartContract_ANR.Size = new Size(404, 297);
             chartContract_ANR.TabIndex = 1;
             chartContract_ANR.Text = "chart1";
@@ -359,72 +359,72 @@
             dataGridViewTable_ANR.Size = new Size(479, 542);
             dataGridViewTable_ANR.TabIndex = 0;
             // 
+            // openFileDialogTask
+            // 
+            openFileDialogTask.FileName = "openFileDialogTask";
+            // 
             // Column1
             // 
-            Column1.HeaderText = "Full name";
+            Column1.HeaderText = "ФИО";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.Width = 300;
             // 
             // Column2
             // 
-            Column2.HeaderText = "Adress";
+            Column2.HeaderText = "Адрес";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.Width = 300;
             // 
             // Column3
             // 
-            Column3.HeaderText = "Phone number";
+            Column3.HeaderText = "Номер телефона";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.Width = 125;
             // 
             // Column4
             // 
-            Column4.HeaderText = "Function";
+            Column4.HeaderText = "Должность";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.Width = 125;
             // 
             // Column5
             // 
-            Column5.HeaderText = "Salary";
+            Column5.HeaderText = "Оклад";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.Width = 125;
             // 
             // Column8
             // 
-            Column8.HeaderText = "Currency";
+            Column8.HeaderText = "Валюта";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.Width = 125;
             // 
             // Column6
             // 
-            Column6.HeaderText = "№ of contract";
+            Column6.HeaderText = "№ ТД";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.Width = 125;
             // 
             // Column7
             // 
-            Column7.HeaderText = "Validity period of the TD";
+            Column7.HeaderText = "Срок действия ТД";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.Width = 125;
             // 
             // Column9
             // 
-            Column9.HeaderText = "Years";
+            Column9.HeaderText = "Лет";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.Width = 125;
-            // 
-            // openFileDialogTask
-            // 
-            openFileDialogTask.FileName = "openFileDialogTask";
             // 
             // FormMain
             // 

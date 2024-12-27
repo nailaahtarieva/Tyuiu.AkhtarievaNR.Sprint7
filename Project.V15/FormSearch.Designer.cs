@@ -32,6 +32,7 @@
             textBoxNumber_ANR = new TextBox();
             textBox1 = new TextBox();
             groupBox2 = new GroupBox();
+            textBoxRub_ANR = new TextBox();
             buttonOpen_ANR = new Button();
             buttonSearch_ANR = new Button();
             buttonClose_ANR = new Button();
@@ -48,6 +49,7 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             openFileDialog_ANR = new OpenFileDialog();
+            textBoxYears_ANR = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -59,7 +61,7 @@
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(495, 80);
+            groupBox1.Size = new Size(569, 80);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Введите номер трудового договора";
@@ -83,6 +85,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(textBoxYears_ANR);
+            groupBox2.Controls.Add(textBoxRub_ANR);
             groupBox2.Controls.Add(buttonOpen_ANR);
             groupBox2.Controls.Add(buttonSearch_ANR);
             groupBox2.Controls.Add(buttonClose_ANR);
@@ -101,10 +105,19 @@
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 80);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(495, 484);
+            groupBox2.Size = new Size(569, 484);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Данные сотрудника";
+            // 
+            // textBoxRub_ANR
+            // 
+            textBoxRub_ANR.BackColor = SystemColors.MenuBar;
+            textBoxRub_ANR.BorderStyle = BorderStyle.None;
+            textBoxRub_ANR.Location = new Point(475, 262);
+            textBoxRub_ANR.Name = "textBoxRub_ANR";
+            textBoxRub_ANR.Size = new Size(82, 20);
+            textBoxRub_ANR.TabIndex = 15;
             // 
             // buttonOpen_ANR
             // 
@@ -128,7 +141,7 @@
             // 
             // buttonClose_ANR
             // 
-            buttonClose_ANR.Location = new Point(349, 412);
+            buttonClose_ANR.Location = new Point(448, 412);
             buttonClose_ANR.Name = "buttonClose_ANR";
             buttonClose_ANR.Size = new Size(109, 50);
             buttonClose_ANR.TabIndex = 12;
@@ -187,7 +200,7 @@
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(143, 71);
             textBox8.TabIndex = 5;
-            textBox8.Text = "Срок действия трудового договора, лет:";
+            textBox8.Text = "Срок действия трудового договора:";
             // 
             // textBox7
             // 
@@ -197,7 +210,7 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(143, 20);
             textBox7.TabIndex = 4;
-            textBox7.Text = "Оклад, руб:";
+            textBox7.Text = "Оклад:";
             // 
             // textBox6
             // 
@@ -243,11 +256,20 @@
             // 
             openFileDialog_ANR.FileName = "openFileDialog_ANR";
             // 
+            // textBoxYears_ANR
+            // 
+            textBoxYears_ANR.BackColor = SystemColors.MenuBar;
+            textBoxYears_ANR.BorderStyle = BorderStyle.None;
+            textBoxYears_ANR.Location = new Point(475, 323);
+            textBoxYears_ANR.Name = "textBoxYears_ANR";
+            textBoxYears_ANR.Size = new Size(82, 20);
+            textBoxYears_ANR.TabIndex = 17;
+            // 
             // FormSearch
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(495, 564);
+            ClientSize = new Size(569, 564);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             MaximizeBox = false;
@@ -283,5 +305,7 @@
         private TextBox textBoxValidity_ANR;
         private TextBox textBoxSalary_ANR;
         private OpenFileDialog openFileDialog_ANR;
+        private TextBox textBoxRub_ANR;
+        private TextBox textBoxYears_ANR;
     }
 }

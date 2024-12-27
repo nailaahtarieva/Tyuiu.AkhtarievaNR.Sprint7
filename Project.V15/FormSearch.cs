@@ -39,10 +39,10 @@ namespace Project.V15
             string[,] mas = new string[row, col];
             mas = ds.Mass(openFilePath, row, col);
             string str = textBoxNumber_ANR.Text;
-            int k = 1;
+            int k = 0;
             for (int i = 0; i < mas.GetLength(0); i++)
             {
-                for (int j = 0; j <= 0; j++)
+                for (int j = 6; j <= 6; j++)
                 {
                     if (mas[i, j] == str)
                     {
@@ -55,8 +55,12 @@ namespace Project.V15
                         textBoxFunction_ANR.Text = mas[i, k];
                         k++;
                         textBoxSalary_ANR.Text = mas[i, k];
-                        k = k + 2;
+                        k++;
+                        textBoxRub_ANR.Text = mas[i, k];
+                        k += 2;
                         textBoxValidity_ANR.Text = mas[i, k];
+                        k++;
+                        textBoxYears_ANR.Text = mas[i, k];
                     }
                 }
             }
