@@ -117,13 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Руководство по пользованию приложением:
-1. Загрузите файл с необходимой информацией с помощью кнопки "Загрузить файл";
-2. Выведите данные в таблицу "Общая информация о работниках компании" с помощью кнопки "Создать таблицу";
-3. Внесите необходимые изменения в таблицу и сохраните новый файл с помощью кнопки "Сохранить файл";
-4. Выведите данные в виде графика с помощью кнопки "Создать график";
-5. Выведите данные статистики с помощью кнопки "Выполнить";
-6. Осущесвите поиск сотрудника по номеру трудового договора с помощью кнопки "Найти сотрудника", введите номер трудового договора.</value>
-  </data>
+  <metadata name="openFileDialog_ANR.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

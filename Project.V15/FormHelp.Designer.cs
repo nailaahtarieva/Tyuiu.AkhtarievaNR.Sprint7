@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHelp));
             label1 = new Label();
             buttonOK_ANR = new Button();
             SuspendLayout();
@@ -37,15 +38,15 @@
             label1.AutoSize = true;
             label1.Location = new Point(21, 23);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(1000, 140);
             label1.TabIndex = 0;
-            label1.Text = "label1";
+            label1.Text = resources.GetString("label1.Text");
             // 
             // buttonOK_ANR
             // 
-            buttonOK_ANR.Location = new Point(512, 284);
+            buttonOK_ANR.Location = new Point(885, 186);
             buttonOK_ANR.Name = "buttonOK_ANR";
-            buttonOK_ANR.Size = new Size(128, 38);
+            buttonOK_ANR.Size = new Size(136, 44);
             buttonOK_ANR.TabIndex = 1;
             buttonOK_ANR.Text = "OK";
             buttonOK_ANR.UseVisualStyleBackColor = true;
@@ -55,7 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(661, 334);
+            ClientSize = new Size(1038, 248);
             Controls.Add(buttonOK_ANR);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;

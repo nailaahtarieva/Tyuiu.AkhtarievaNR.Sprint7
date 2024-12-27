@@ -30,9 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             buttonHelp_ANR = new Button();
             buttonInfo_ANR = new Button();
@@ -45,29 +45,37 @@
             panel2 = new Panel();
             groupBox1 = new GroupBox();
             buttonDone_ANR = new Button();
-            textBox6 = new TextBox();
+            textBoxSrLen_ANR = new TextBox();
             textBox4 = new TextBox();
             textBoxMaxLen_ANR = new TextBox();
             textBox3 = new TextBox();
             textBoxMinLen_ANR = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chartContract_ANR = new System.Windows.Forms.DataVisualization.Charting.Chart();
             splitter2 = new Splitter();
             panel3 = new Panel();
             groupBoxViewTable_ANR = new GroupBox();
-            dataGridView1 = new DataGridView();
-            ColumnName = new DataGridViewTextBoxColumn();
+            dataGridViewTable_ANR = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column9 = new DataGridViewTextBoxColumn();
             toolTip = new ToolTip(components);
             saveFileDialogTask = new SaveFileDialog();
+            openFileDialogTask = new OpenFileDialog();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartContract_ANR).BeginInit();
             panel3.SuspendLayout();
             groupBoxViewTable_ANR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTable_ANR).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -81,13 +89,15 @@
             panel1.Controls.Add(buttonCreateChart_ANR);
             panel1.Controls.Add(buttonOpenFile_ANR);
             panel1.Controls.Add(splitter1);
-            panel1.Location = new Point(0, -1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(927, 61);
             panel1.TabIndex = 0;
             // 
             // buttonHelp_ANR
             // 
+            buttonHelp_ANR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonHelp_ANR.Image = (Image)resources.GetObject("buttonHelp_ANR.Image");
             buttonHelp_ANR.Location = new Point(785, 7);
             buttonHelp_ANR.Name = "buttonHelp_ANR";
@@ -99,6 +109,7 @@
             // 
             // buttonInfo_ANR
             // 
+            buttonInfo_ANR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonInfo_ANR.Image = (Image)resources.GetObject("buttonInfo_ANR.Image");
             buttonInfo_ANR.Location = new Point(860, 7);
             buttonInfo_ANR.Name = "buttonInfo_ANR";
@@ -110,6 +121,7 @@
             // 
             // buttonSaveFile_ANR
             // 
+            buttonSaveFile_ANR.Enabled = false;
             buttonSaveFile_ANR.Image = (Image)resources.GetObject("buttonSaveFile_ANR.Image");
             buttonSaveFile_ANR.Location = new Point(307, 7);
             buttonSaveFile_ANR.Name = "buttonSaveFile_ANR";
@@ -117,9 +129,11 @@
             buttonSaveFile_ANR.TabIndex = 6;
             toolTip.SetToolTip(buttonSaveFile_ANR, "Сохранить файл");
             buttonSaveFile_ANR.UseVisualStyleBackColor = true;
+            buttonSaveFile_ANR.Click += buttonSaveFile_ANR_Click;
             // 
             // buttonCreateTable_ANR
             // 
+            buttonCreateTable_ANR.Enabled = false;
             buttonCreateTable_ANR.Image = (Image)resources.GetObject("buttonCreateTable_ANR.Image");
             buttonCreateTable_ANR.Location = new Point(87, 7);
             buttonCreateTable_ANR.Name = "buttonCreateTable_ANR";
@@ -138,9 +152,11 @@
             buttonSearch_ANR.TabIndex = 4;
             toolTip.SetToolTip(buttonSearch_ANR, "Найти работника");
             buttonSearch_ANR.UseVisualStyleBackColor = true;
+            buttonSearch_ANR.Click += buttonSearch_ANR_Click;
             // 
             // buttonCreateChart_ANR
             // 
+            buttonCreateChart_ANR.Enabled = false;
             buttonCreateChart_ANR.Image = (Image)resources.GetObject("buttonCreateChart_ANR.Image");
             buttonCreateChart_ANR.Location = new Point(160, 7);
             buttonCreateChart_ANR.Name = "buttonCreateChart_ANR";
@@ -175,47 +191,50 @@
             panel2.BackColor = Color.LightBlue;
             panel2.Controls.Add(groupBox1);
             panel2.Controls.Add(splitter2);
-            panel2.Location = new Point(485, 59);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(485, 61);
             panel2.Name = "panel2";
-            panel2.Size = new Size(442, 567);
+            panel2.Size = new Size(442, 568);
             panel2.TabIndex = 1;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.BackColor = SystemColors.GradientInactiveCaption;
             groupBox1.Controls.Add(buttonDone_ANR);
-            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(textBoxSrLen_ANR);
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(textBoxMaxLen_ANR);
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBoxMinLen_ANR);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(chart1);
-            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(chartContract_ANR);
             groupBox1.Location = new Point(4, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(438, 567);
+            groupBox1.Size = new Size(438, 568);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Сроки действия трудовых договоров:";
             // 
             // buttonDone_ANR
             // 
+            buttonDone_ANR.Enabled = false;
             buttonDone_ANR.Location = new Point(246, 504);
             buttonDone_ANR.Name = "buttonDone_ANR";
             buttonDone_ANR.Size = new Size(158, 43);
             buttonDone_ANR.TabIndex = 10;
             buttonDone_ANR.Text = "Выполнить";
             buttonDone_ANR.UseVisualStyleBackColor = true;
+            buttonDone_ANR.Click += buttonDone_ANR_Click;
             // 
-            // textBox6
+            // textBoxSrLen_ANR
             // 
-            textBox6.Location = new Point(21, 520);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(170, 27);
-            textBox6.TabIndex = 9;
+            textBoxSrLen_ANR.Location = new Point(21, 520);
+            textBoxSrLen_ANR.Name = "textBoxSrLen_ANR";
+            textBoxSrLen_ANR.ReadOnly = true;
+            textBoxSrLen_ANR.Size = new Size(170, 27);
+            textBoxSrLen_ANR.TabIndex = 9;
             // 
             // textBox4
             // 
@@ -254,7 +273,6 @@
             textBoxMinLen_ANR.ReadOnly = true;
             textBoxMinLen_ANR.Size = new Size(170, 27);
             textBoxMinLen_ANR.TabIndex = 4;
-            textBoxMinLen_ANR.TextChanged += textBoxMinLen_ANR_TextChanged;
             // 
             // textBox2
             // 
@@ -277,29 +295,29 @@
             textBox1.TabIndex = 2;
             textBox1.Text = "Статистика:";
             // 
-            // chart1
+            // chartContract_ANR
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(21, 26);
-            chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(404, 297);
-            chart1.TabIndex = 1;
-            chart1.Text = "chart1";
+            chartArea2.Name = "ChartArea1";
+            chartContract_ANR.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            chartContract_ANR.Legends.Add(legend2);
+            chartContract_ANR.Location = new Point(21, 26);
+            chartContract_ANR.Name = "chartContract_ANR";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartContract_ANR.Series.Add(series2);
+            chartContract_ANR.Size = new Size(404, 297);
+            chartContract_ANR.TabIndex = 1;
+            chartContract_ANR.Text = "chart1";
             // 
             // splitter2
             // 
             splitter2.Location = new Point(0, 0);
             splitter2.Name = "splitter2";
-            splitter2.Size = new Size(4, 567);
+            splitter2.Size = new Size(4, 568);
             splitter2.TabIndex = 0;
             splitter2.TabStop = false;
             // 
@@ -307,52 +325,106 @@
             // 
             panel3.BackColor = SystemColors.InactiveCaption;
             panel3.Controls.Add(groupBoxViewTable_ANR);
-            panel3.Location = new Point(0, 59);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 61);
             panel3.Name = "panel3";
-            panel3.Size = new Size(486, 567);
+            panel3.Size = new Size(485, 568);
             panel3.TabIndex = 2;
             // 
             // groupBoxViewTable_ANR
             // 
+            groupBoxViewTable_ANR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBoxViewTable_ANR.BackColor = SystemColors.GradientInactiveCaption;
-            groupBoxViewTable_ANR.Controls.Add(dataGridView1);
-            groupBoxViewTable_ANR.Dock = DockStyle.Fill;
+            groupBoxViewTable_ANR.Controls.Add(dataGridViewTable_ANR);
             groupBoxViewTable_ANR.Font = new Font("Segoe UI", 9F);
             groupBoxViewTable_ANR.ForeColor = SystemColors.ActiveCaptionText;
             groupBoxViewTable_ANR.Location = new Point(0, 0);
             groupBoxViewTable_ANR.Name = "groupBoxViewTable_ANR";
-            groupBoxViewTable_ANR.Size = new Size(486, 567);
+            groupBoxViewTable_ANR.Size = new Size(485, 568);
             groupBoxViewTable_ANR.TabIndex = 0;
             groupBoxViewTable_ANR.TabStop = false;
             groupBoxViewTable_ANR.Text = "Общая информация о работниках компании:";
             // 
-            // dataGridView1
+            // dataGridViewTable_ANR
             // 
-            dataGridView1.BackgroundColor = SystemColors.InactiveCaption;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnName, Column2 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.GridColor = Color.DarkGray;
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(480, 541);
-            dataGridView1.TabIndex = 0;
+            dataGridViewTable_ANR.BackgroundColor = SystemColors.InactiveCaption;
+            dataGridViewTable_ANR.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTable_ANR.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column8, Column6, Column7, Column9 });
+            dataGridViewTable_ANR.Dock = DockStyle.Fill;
+            dataGridViewTable_ANR.GridColor = Color.DarkGray;
+            dataGridViewTable_ANR.Location = new Point(3, 23);
+            dataGridViewTable_ANR.Name = "dataGridViewTable_ANR";
+            dataGridViewTable_ANR.RowHeadersVisible = false;
+            dataGridViewTable_ANR.RowHeadersWidth = 51;
+            dataGridViewTable_ANR.Size = new Size(479, 542);
+            dataGridViewTable_ANR.TabIndex = 0;
             // 
-            // ColumnName
+            // Column1
             // 
-            ColumnName.HeaderText = "Наименование организации:";
-            ColumnName.MinimumWidth = 6;
-            ColumnName.Name = "ColumnName";
-            ColumnName.Width = 125;
+            Column1.HeaderText = "Full name";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 300;
             // 
             // Column2
             // 
-            Column2.HeaderText = "";
+            Column2.HeaderText = "Adress";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
+            Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Phone number";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Function";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Salary";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 125;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Currency";
+            Column8.MinimumWidth = 6;
+            Column8.Name = "Column8";
+            Column8.Width = 125;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "№ of contract";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Validity period of the TD";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.Width = 125;
+            // 
+            // Column9
+            // 
+            Column9.HeaderText = "Years";
+            Column9.MinimumWidth = 6;
+            Column9.Name = "Column9";
+            Column9.Width = 125;
+            // 
+            // openFileDialogTask
+            // 
+            openFileDialogTask.FileName = "openFileDialogTask";
             // 
             // FormMain
             // 
@@ -364,14 +436,15 @@
             Controls.Add(panel1);
             Name = "FormMain";
             Text = "Главная страница";
+            Load += FormMain_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartContract_ANR).EndInit();
             panel3.ResumeLayout(false);
             groupBoxViewTable_ANR.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTable_ANR).EndInit();
             ResumeLayout(false);
         }
 
@@ -384,11 +457,9 @@
         private Splitter splitter2;
         private Button buttonOpenFile_ANR;
         private GroupBox groupBoxViewTable_ANR;
-        private DataGridView dataGridView1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private DataGridView dataGridViewTable_ANR;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartContract_ANR;
         private GroupBox groupBox1;
-        private DataGridViewTextBoxColumn ColumnName;
-        private DataGridViewTextBoxColumn Column2;
         private ToolTip toolTip;
         private Button buttonCreateChart_ANR;
         private Button buttonSearch_ANR;
@@ -401,9 +472,19 @@
         private TextBox textBox3;
         private TextBox textBoxMaxLen_ANR;
         private TextBox textBox4;
-        private TextBox textBox6;
+        private TextBox textBoxSrLen_ANR;
         private Button buttonDone_ANR;
         private SaveFileDialog saveFileDialogTask;
         private Button buttonHelp_ANR;
+        private OpenFileDialog openFileDialogTask;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column9;
     }
 }
